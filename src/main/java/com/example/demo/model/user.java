@@ -1,7 +1,7 @@
 package com.example.demo.model;
 
 public class user {
-    //Fields 
+    // Fields
     private int id;
     private String name;
     private int age;
