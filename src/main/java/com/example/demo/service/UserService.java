@@ -1,31 +1,29 @@
 package com.example.demo.service;
 
-import com.example.demo.model.user;
+import com.example.demo.model.User;
+import com.example.demo.repository.UserRepository;
+
+import jakarta.annotation.PostConstruct;
+
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class UserService {
 
-    private List<user> users = new ArrayList<>();
+    private final UserRepository userRepository;
 
-    public UserService() {
-        // Dummy data
-        users.add(new user(1, "Aseel", 22));
-        users.add(new user(2, "Deema", 20));
-        users.add(new user(3, "Lina", 19));
-        users.add(new user(4, "Omar", 25));
-        users.add(new user(5, "Yousef", 23));
-        users.add(new user(6, "Maya", 21));
-        users.add(new user(7, "Ahmad", 24));
-        users.add(new user(8, "Sara", 22));
-        users.add(new user(9, "Kareem", 26));
-        users.add(new user(10, "Noor", 18));
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
     }
 
-    public List<user> getAllUsers() {
-        return users;
+    public List<User> getAllUsers() {
+        return userRepository.findAll();
     }
+    @PostConstruct
+    public void init() { 
+    userRepository.save(new User("Aseel", 21));
+    userRepository.save(new User("Deema", 21));
+}
 }

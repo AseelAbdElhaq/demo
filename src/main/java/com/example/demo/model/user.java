@@ -1,28 +1,26 @@
 package com.example.demo.model;
 
-public class user {
-    // Fields
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "users")
+public class User {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     private String name;
     private int age;
 
-    // Constructor
-    public user(int id, String name, int age) {
-        this.id = id;
+    public User() {}
+
+    public User(String name, int age) {
         this.name = name;
         this.age = age;
     }
 
-    // Getters
-    public int getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public int getAge() {
-        return age;
-    }
+    public int getId() { return id; }
+    public String getName() { return name; }
+    public int getAge() { return age; }
 }

@@ -1,6 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.model.user;
+import com.example.demo.model.User;
 import com.example.demo.service.UserService;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,7 +19,7 @@ public class UserController {
 
     // Get method for retrive all users
     @GetMapping
-    public List<user> getUsers() {
+    public List<User> getUsers() {
         return userService.getAllUsers();
     }
 }
